@@ -119,10 +119,10 @@ exports.NetworkMod = function edgeUI(mod) {
 	
 	mod.hook('S_ABNORMALITY_BEGIN',3, {order: -1}, (e) => {
 		if ( overlay && supportedClazz.includes(mod.game.me.class) && buffsOverlays.includes(e.id) ) {
-			overlay.send('buffs',e);
+			overlay.send('buffs',e);			
 		}
 	});
-
+	
 	function spawnOverlay() {
 		let openUI = null, pos = null,scale=0.65;
 		
@@ -139,7 +139,7 @@ exports.NetworkMod = function edgeUI(mod) {
 		}
 
 		openUI.show();
-		//setTimeout(() => { mod.command.exec(`edgeui scale ${scale}`) }, 150)
+		setTimeout(() => { mod.command.exec(`edgeui scale ${scale}`) }, 150)
 		openUI.window.setPosition(pos[0], pos[1]);
 		openUI.window.setAlwaysOnTop(true, 'screen-saver', 1);
 		openUI.window.setVisibleOnAllWorkspaces(true);

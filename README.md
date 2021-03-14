@@ -4,29 +4,34 @@ A toolbox/electron gui based workaround for warrior edge being slow/getting stuc
 
 ## Additional Changes
 - Changed warrior to the classic edge style ( line ) with DG overlay and edge counter supported
-- Removed Laurel because i personally don't "like" it
+- Removed Laurel from original mod
 - Added valk edge ui ( No bug fix or anything is just cosmetics )
    - Runemarks.
    - Godsfall and Ragnarok overlay when its active
+
+## Preview 
+[Warr Edge UI Preview - Partial edge](https://i.imgur.com/Aigkt1n.png)
+
+[Warr Edge UI Preview - Full edge](https://i.imgur.com/7ZdilNr.png)
+
+[Warr Edge UI Preview - With Deadly Gamble](https://i.imgur.com/V7SFlFF.png)
+
+[Valk Edge UI Preview](https://i.imgur.com/gcO4ncc.png)
 
 ## Commands
 
 `/8 edgeui` main command, also used to manually open the ui if you closed it
 
-`/8 edgeui scale somenumber` changes the scale of the ui (default is 0.75)
+`/8 edgeui scale somenumber` changes the scale of the ui (default is 0.75, min 0.5 and max 1)
 
 ## Credits & Disclaimer
 
 **Original author / mod:**
 https://github.com/Snugglez/warrior-edge-ui
 
+[Warr Edge UI Preview](https://streamable.com/b2kupq)
 **Disclaimer**
 Additional changes in this mod is only meant for my own usage. If you want to support, please support the original author ( Snug ) as i don't take credits or $$ for it.
-
-## Preview 
-[video preview link](https://streamable.com/b2kupq)
-
-[Valk Edge UI Preview](https://i.imgur.com/jD2mmvu.png)
 
 
 

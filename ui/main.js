@@ -82,6 +82,16 @@ document.addEventListener('DOMContentLoaded', () => {
   
   mod.on('buffs',(buff) => {
 	  document.getElementById(buff.id).style.display = 'inline';
-	  setTimeout(()=>{document.getElementById(buff.id).style.display = 'none'},buff.duration);
+	  let buffDuration = ((buff.duration % 60000) / 1000).toFixed(0);
+	  document.getElementById('t'+buff.id).innerHTML=buffDuration;
+	  
+	  let buffDurationInterval = setInterval( () => {
+		  buffDuration -=1
+		  if ( buffDuration >= 0 ) document.getElementById('t'+buff.id).innerHTML = buffDuration;
+		  if ( buffDuration == 0 ) {
+			  document.getElementById(buff.id).style.display = 'none';
+			  clearInterval(buffDurationInterval);
+		  }
+	  },950);
   })
 })

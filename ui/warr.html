@@ -10,19 +10,20 @@
            position: relative;
            width: 100%;
            overflow: hidden;
+		   -webkit-app-region: drag;
          }
 
 		 img {
 			height: 35px;
 			width: 35px;
+			-webkit-app-region: drag;
 		 }
 
 		 #bottomBar {
 		   overflow: hidden;
 		   z-index: -1;
            position: absolute;
-		   top:18%;
-		   left:1%;
+		   -webkit-app-region: drag;
 		 }
 		 
 		 #edgeNum {
@@ -30,20 +31,36 @@
 		   z-index: -1;
            position: absolute;
 		   bottom:60%;
+		   left:1%;
 		   background-color:#f01934;
 		   text-align: center;
 		   color:#FFFFFF;
 		   font-family: "Comic Sans MS", "Comic Sans", fantasy;
 		   font-size: 24px;
-		   margin:auto;
 		 }
 		 
 		 #images {
 		   overflow: hidden;
 		   z-index: -1;
            position: absolute;
-		   top:8%;
-		   left:17%
+		   left:20%;
+		   bottom:56%;
+		   -webkit-app-region: drag;
+		 }
+		 
+		 .buffs {
+		   overflow: hidden;
+		   z-index: -1;
+           position: absolute;
+		   bottom:44%;
+		   -webkit-app-region: drag;
+		   text-align: center;
+		 }
+		 
+		 .buffs>b {
+		    font-family: "Comic Sans MS", "Comic Sans", fantasy;
+			-webkit-app-region: drag;
+			font-size: 13px;
 		 }
       </style>
    </head>
@@ -52,24 +69,27 @@
 			<g>
 				<!--f01934 red c9c9c9 grey fabd2f yellow -->
 				<line id="edgeBar" x1="0" x2="0%" style="stroke:#fabd2f;stroke-width:20;stroke-dasharray=100%;;stroke-dashoffset=50%" />
-                <rect width="24" height="10" x="0" style="fill:transparent;stroke:#FFFFFF;stroke-width:1.5"/>
-                <rect width="24" height="10" x="24" style="fill:transparent;stroke:#FFFFFF;stroke-width:1.5"/>
-                <rect width="24" height="10" x="48" style="fill:transparent;stroke:#FFFFFF;stroke-width:1.5"/>
-                <rect width="24" height="10" x="72" style="fill:transparent;stroke:#FFFFFF;stroke-width:1.5"/>
-                <rect width="24" height="10" x="96" style="fill:transparent;stroke:#FFFFFF;stroke-width:1.5"/>
-                <rect width="24" height="10" x="120" style="fill:transparent;stroke:#FFFFFF;stroke-width:1.5"/>
-                <rect width="24" height="10" x="144" style="fill:transparent;stroke:#FFFFFF;stroke-width:1.5"/>
-                <rect width="24" height="10" x="168" style="fill:transparent;stroke:#FFFFFF;stroke-width:1.5"/>
-                <rect width="24" height="10" x="192" style="fill:transparent;stroke:#FFFFFF;stroke-width:1.5"/>
-                <rect width="24" height="10" x="216" style="fill:transparent;stroke:#FFFFFF;stroke-width:1.5"/>
+                <rect width="24" height="10" x="0" style="fill:transparent;stroke:#c9c9c9;stroke-width:1.5"/>
+                <rect width="24" height="10" x="24" style="fill:transparent;stroke:#c9c9c9;stroke-width:1.5"/>
+                <rect width="24" height="10" x="48" style="fill:transparent;stroke:#c9c9c9;stroke-width:1.5"/>
+                <rect width="24" height="10" x="72" style="fill:transparent;stroke:#c9c9c9;stroke-width:1.5"/>
+                <rect width="24" height="10" x="96" style="fill:transparent;stroke:#c9c9c9;stroke-width:1.5"/>
+                <rect width="24" height="10" x="120" style="fill:transparent;stroke:#c9c9c9;stroke-width:1.5"/>
+                <rect width="24" height="10" x="144" style="fill:transparent;stroke:#c9c9c9;stroke-width:1.5"/>
+                <rect width="24" height="10" x="168" style="fill:transparent;stroke:#c9c9c9;stroke-width:1.5"/>
+                <rect width="24" height="10" x="192" style="fill:transparent;stroke:#c9c9c9;stroke-width:1.5"/>
+                <rect width="24" height="10" x="216" style="fill:transparent;stroke:#c9c9c9;stroke-width:1.5"/>
 			</g>
 		</svg>
 		<div id="bottomBar" style="width:240;height:110">
-			<div id="edgeNum" style="width:35;height:35"><b>0</b></div>
-			
-			<div id="images" style="width:240;">
-				<img id="100801" src="https://i.imgur.com/vjjom1f.png" style="display:none;">
-				<img id="18817" src="https://i.imgur.com/qUmH6Yn.png" style="display:none;">
+			<div id="edgeNum" style="width:35;height:35;display:true;"><b>0</b></div>
+			<div class="buffs" id="100801" style="left:18%;display:none;">
+				<img src="https://i.imgur.com/vjjom1f.png"/><br/>
+				<b id="t100801" style="color: #FFFFFF">d1</b>
+			</div>
+			<div class="buffs" id="18817" style="left:35%;display:none;">
+				<img src="https://i.imgur.com/qUmH6Yn.png"/><br/>
+				<b id="t18817" style="color: #FFFFFF">g1</b>
 			</div>
 		</div>
    </body>
