@@ -1,0 +1,17 @@
+{
+	"files": {
+		"README.md": "568fd4c1e332649b7db5c6224e2d5944bd403198425ad1e2bf93308607a1c76f",
+		"config_generator.js": "7d5105a1f0b6b59fc1f421a3d0ec8214a192b8abe5da763f10c426e58aa5fba6",
+		"index.js": "6a7f75eb573ffa68b52f8319d3490322e69c841290032781bd0374d3ea7e28bf",
+		"module.json": "b15b592cc17d2a14b79d2ca55c7f00fe3b6ba38dff36aea133331a35a12eda8a",
+		"ui/warr.html": "d97e8223e2c6f703cf76f0695c6d5ba2e586294d69babfd2194931df152a4eba",
+		"ui/valk.html": "7a7e8034c30989a7fa8e20b2900bd0518df444e661eca4b442fdde8c54a9e221",
+		"ui/main.js": "504857d87c3b465e2fe8429d6518ae838a4634d7a7d7d68c57eb389fc998cf3a"
+	},
+	"defs": {
+		"S_PLAYER_STAT_UPDATE": 14,
+		"S_WEAK_POINT": 1,
+		"S_PLAYER_CHANGE_STAMINA": 1,
+		"S_ABNORMALITY_BEGIN": 3
+	}
+}

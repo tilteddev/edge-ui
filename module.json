@@ -1,0 +1,19 @@
+{
+	"disableAutoUpdate": false,
+	"name": "edge-ui",
+	"author": "Snug, Tilteddev",
+	"description": "A toolbox/electron gui based replacement for warrior edge being slow/stuck and others.",
+	"version": "1.0",
+	"donationUrl": "https://play.google.com/store/apps/details?id=com.CarvedGames.SD",
+	"options": {
+		"guiName": "edge-ui",
+		"niceName": "EdgeUI",
+		"reloadable": true,
+		"settingsVersion": 1,
+		"settingsFile": "config.json",
+		"settingsMigrator": "config_generator.js"
+	},
+	"servers": [
+		"https://raw.githubusercontent.com/tilteddev/edge-ui/main/"
+	]
+}

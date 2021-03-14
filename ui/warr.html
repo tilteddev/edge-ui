@@ -1,0 +1,76 @@
+<html>
+   <head>
+      <script src="main.js"></script>
+      <style type="text/css" class="INLINE_PEN_STYLESHEET_ID">		 
+         #edgeCountSvg {
+		   -webkit-app-region: drag;
+		 }
+
+         body {
+           position: relative;
+           width: 100%;
+           overflow: hidden;
+         }
+
+		 img {
+			height: 35px;
+			width: 35px;
+		 }
+
+		 #bottomBar {
+		   overflow: hidden;
+		   z-index: -1;
+           position: absolute;
+		   top:18%;
+		   left:1%;
+		 }
+		 
+		 #edgeNum {
+		   overflow: hidden;
+		   z-index: -1;
+           position: absolute;
+		   bottom:60%;
+		   background-color:#f01934;
+		   text-align: center;
+		   color:#FFFFFF;
+		   font-family: "Comic Sans MS", "Comic Sans", fantasy;
+		   font-size: 24px;
+		   margin:auto;
+		 }
+		 
+		 #images {
+		   overflow: hidden;
+		   z-index: -1;
+           position: absolute;
+		   top:8%;
+		   left:17%
+		 }
+      </style>
+   </head>
+   <body id="mainBody" style="transform: scale(1,1);">
+		<svg id="edgeCountSvg" style="width:240;height:10;">
+			<g>
+				<!--f01934 red c9c9c9 grey fabd2f yellow -->
+				<line id="edgeBar" x1="0" x2="0%" style="stroke:#fabd2f;stroke-width:20;stroke-dasharray=100%;;stroke-dashoffset=50%" />
+                <rect width="24" height="10" x="0" style="fill:transparent;stroke:#FFFFFF;stroke-width:1.5"/>
+                <rect width="24" height="10" x="24" style="fill:transparent;stroke:#FFFFFF;stroke-width:1.5"/>
+                <rect width="24" height="10" x="48" style="fill:transparent;stroke:#FFFFFF;stroke-width:1.5"/>
+                <rect width="24" height="10" x="72" style="fill:transparent;stroke:#FFFFFF;stroke-width:1.5"/>
+                <rect width="24" height="10" x="96" style="fill:transparent;stroke:#FFFFFF;stroke-width:1.5"/>
+                <rect width="24" height="10" x="120" style="fill:transparent;stroke:#FFFFFF;stroke-width:1.5"/>
+                <rect width="24" height="10" x="144" style="fill:transparent;stroke:#FFFFFF;stroke-width:1.5"/>
+                <rect width="24" height="10" x="168" style="fill:transparent;stroke:#FFFFFF;stroke-width:1.5"/>
+                <rect width="24" height="10" x="192" style="fill:transparent;stroke:#FFFFFF;stroke-width:1.5"/>
+                <rect width="24" height="10" x="216" style="fill:transparent;stroke:#FFFFFF;stroke-width:1.5"/>
+			</g>
+		</svg>
+		<div id="bottomBar" style="width:240;height:110">
+			<div id="edgeNum" style="width:35;height:35"><b>0</b></div>
+			
+			<div id="images" style="width:240;">
+				<img id="100801" src="https://i.imgur.com/vjjom1f.png" style="display:none;">
+				<img id="18817" src="https://i.imgur.com/qUmH6Yn.png" style="display:none;">
+			</div>
+		</div>
+   </body>
+</html>
