@@ -3,6 +3,7 @@
 A toolbox/electron gui based workaround for warrior edge being slow/getting stuck and some additional changes.
 
 ## Additional Changes
+- Changed warrior to the classic edge style ( line ) with DG overlay and edge counter supported
 - Removed Laurel because i personally don't "like" it
 - Added valk edge ui ( No bug fix or anything is just cosmetics )
    - Runemarks.
