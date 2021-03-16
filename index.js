@@ -58,6 +58,12 @@ exports.NetworkMod = function edgeUI(mod) {
 		}
 	})
 	
+	mod.hook('S_CREATURE_LIFE',3, (e) => {
+		if ( !overlay || !classesUI[mod.game.me.class] ) return;
+		
+		if ( !e.alive ) overlay.send('buffs',{isActive:false});
+	});
+	
 	mod.hook('S_PLAYER_CHANGE_STAMINA', 1, (e) => {
 		if ( !overlay || mod.game.me.class != 'glaiver' ) return;
 		
@@ -100,13 +106,13 @@ exports.NetworkMod = function edgeUI(mod) {
 	mod.hook('S_ABNORMALITY_BEGIN',3, (e) => {
 		if ( !overlay || !classesUI[mod.game.me.class] || !buffsOverlays.includes(e.id) ) return
 		
-		overlay.send('buffs',{id:e.id,duration:parseInt(e.duration)});			
+		overlay.send('buffs',{id:e.id,duration:parseInt(e.duration),isActive:true});			
 	});
 	
 	mod.hook('S_ABNORMALITY_REFRESH',2, (e) => {
 		if ( !overlay || !classesUI[mod.game.me.class]) return; 
 		
-		if ( e.id == 503061 ) overlay.send('buffs',{id:e.id,duration:parseInt(e.duration)});
+		if ( e.id == 503061 ) overlay.send('buffs',{id:e.id,duration:parseInt(e.duration),isActive:true});
 	});
 	
 	function spawnOverlay() {

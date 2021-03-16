@@ -87,27 +87,35 @@ document.addEventListener('DOMContentLoaded', () => {
   })
   
   mod.on('buffs',(buff) => {
-	  document.getElementById(buff.id).style.display = 'inline';
-	  let buffDuration = ((buff.duration % 60000) / 1000).toFixed(0);
-	  document.getElementById('t'+buff.id).innerHTML=buffDuration;
-	  
-	  // reset skill handling
-	  if ( cachedInterval.has(buff.id) ) {
-		clearInterval(cachedInterval.get(buff.id));
-		cachedInterval.delete(buff.id);
-	  }
-	  
-	  let buffDurationInterval = setInterval( () => {
-		  buffDuration -=1
-		  if ( buffDuration >= 0 ) document.getElementById('t'+buff.id).innerHTML = buffDuration;
-		  if ( buffDuration == 0 ) {
-			  document.getElementById(buff.id).style.display = 'none';
-			  cachedInterval.delete(buff.id)
-			  clearInterval(buffDurationInterval);
+	  if ( buff.isActive ) {
+		  document.getElementById(buff.id).style.display = 'inline';
+		  let buffDuration = ((buff.duration % 60000) / 1000).toFixed(0);
+		  document.getElementById('t'+buff.id).innerHTML=buffDuration;
+		  
+		  // reset skill handling
+		  if ( cachedInterval.has(buff.id) ) {
+			clearInterval(cachedInterval.get(buff.id));
+			cachedInterval.delete(buff.id);
 		  }
-	  },980);
-	  
-	  cachedInterval.set(buff.id, buffDurationInterval);
+		  
+		  let buffDurationInterval = setInterval( () => {
+			  buffDuration -=1
+			  if ( buffDuration >= 0 ) document.getElementById('t'+buff.id).innerHTML = buffDuration;
+			  if ( buffDuration == 0 ) {
+				  document.getElementById(buff.id).style.display = 'none';
+				  cachedInterval.delete(buff.id)
+				  clearInterval(buffDurationInterval);
+			  }
+		  },980);
+		  
+		  cachedInterval.set(buff.id, buffDurationInterval);
+	  } else {
+		for (const [buffId, interval] of cachedInterval.entries()) {
+			document.getElementById(buffId).style.display = 'none';
+			clearInterval(interval);
+		}
+		cachedInterval.clear();
+	  }
   });
   
   mod.on('trifusion',(trifusion) => {
