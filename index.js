@@ -6,6 +6,7 @@ exports.NetworkMod = function edgeUI(mod) {
 	const { Host } = require('tera-mod-ui');
 	const path = require("path")
 	const buffsOverlays =[10155130,10155512,18817,100801,503061];
+	let isClickThrough = false;
 	
 	const classesUI = {
 		"glaiver": {
@@ -36,6 +37,7 @@ exports.NetworkMod = function edgeUI(mod) {
 	mod.game.on('leave_game', () => {
 		if ( overlay ) {
 			overlay.close();
+			overlay = undefined;
 		}
 		mod.clearAllIntervals();
 	})
@@ -46,6 +48,10 @@ exports.NetworkMod = function edgeUI(mod) {
 			overlay = undefined;
 		} else if (overlay && !arg && !mod.game.me.class == openedClazz ) {
 			overlay = spawnOverlay();
+		} else if ( overlay && arg == 'drag' ) {
+			isClickThrough = !isClickThrough;
+			overlay.window.setIgnoreMouseEvents(isClickThrough, { forward: isClickThrough});
+			mod.command.message(`Click Through mode is ${isClickThrough ? 'enabled' : 'disabled'}`)
 		} else if (!overlay && !arg || !overlay && ['open', 'gui', 'ui'].includes(arg)) {
 			overlay = spawnOverlay();
 		} else if (overlay && arg == 'scale') {
@@ -58,12 +64,7 @@ exports.NetworkMod = function edgeUI(mod) {
 		}
 	})
 	
-	mod.hook('S_CREATURE_LIFE',3, (e) => {
-		if ( !overlay || !classesUI[mod.game.me.class] ) return;
-		
-		if ( !e.alive ) overlay.send('buffs',{isActive:false});
-	});
-	
+	//specific to player itself
 	mod.hook('S_PLAYER_CHANGE_STAMINA', 1, (e) => {
 		if ( !overlay || mod.game.me.class != 'glaiver' ) return;
 		
@@ -103,16 +104,22 @@ exports.NetworkMod = function edgeUI(mod) {
 		} 
 	});
 	
+	// global packet and required to check against player id
 	mod.hook('S_ABNORMALITY_BEGIN',3, (e) => {
-		if ( !overlay || !classesUI[mod.game.me.class] || !buffsOverlays.includes(e.id) ) return
+		if ( !overlay || !classesUI[mod.game.me.class] || e.target != mod.game.me.gameId || !buffsOverlays.includes(e.id) ) return
 		
 		overlay.send('buffs',{id:e.id,duration:parseInt(e.duration),isActive:true});			
 	});
 	
 	mod.hook('S_ABNORMALITY_REFRESH',2, (e) => {
-		if ( !overlay || !classesUI[mod.game.me.class]) return; 
+		if ( !overlay || !classesUI[mod.game.me.class] || e.target != mod.game.me.gameId) return; 
 		
 		if ( e.id == 503061 ) overlay.send('buffs',{id:e.id,duration:parseInt(e.duration),isActive:true});
+	});
+	
+	mod.hook('S_CREATURE_LIFE',3, (e) => {
+		if ( !overlay || !classesUI[mod.game.me.class] || e.gameId != mod.game.me.gameId ) return;
+		if ( !e.alive ) overlay.send('buffs',{isActive:false});
 	});
 	
 	function spawnOverlay() {
@@ -133,6 +140,7 @@ exports.NetworkMod = function edgeUI(mod) {
 			overlay = undefined;
 			curEdge = 0;
 		});
+		
 		openedClazz = mod.game.me.class;
 
 		return openUI;

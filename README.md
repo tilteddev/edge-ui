@@ -32,6 +32,8 @@ A toolbox/electron gui based workaround for warrior edge being slow/getting stuc
 
 `/8 edgeui scale somenumber` changes the scale of the ui (default is 0.75, min 0.5 and max 1)
 
+`/8 edgeui drag` to enable/disable click through mode. default is false ( not click through )
+
 ## Credits & Disclaimer
 
 **Original author / mod:**
