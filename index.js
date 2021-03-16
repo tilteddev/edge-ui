@@ -122,7 +122,7 @@ exports.NetworkMod = function edgeUI(mod) {
 		openUI.window.setVisibleOnAllWorkspaces(true);
 		mod.setInterval(() => { overlay.window.moveTop() }, 500);
 		openUI.window.on('close', () => {
-			mod.settings.windowPos[classesUI[mod.game.me.class].settingsProp] = openUI.window.getPosition();
+			mod.settings.windowPos[classesUI[openedClazz].settingsProp] = openUI.window.getPosition();
 			mod.clearAllIntervals();
 			overlay = undefined;
 			curEdge = 0;
