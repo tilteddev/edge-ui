@@ -1,0 +1,24 @@
+{
+    "version": 2,
+    "data": {
+        "windowPos": {
+            "edgeUI": [
+                0,
+                0
+            ],
+            "runeUI": [
+                0,
+                0
+            ],
+            "fusionUI": [
+                394,
+                523
+            ]
+        },
+        "scale": {
+            "edgeUI": 0.65,
+            "runeUI": 0.7,
+            "fusionUI": 1
+        }
+    }
+}

@@ -5,53 +5,22 @@ exports.NetworkMod = function edgeUI(mod) {
 
 	const { Host } = require('tera-mod-ui');
 	const path = require("path")
-	const buffsOverlays =[10155130,10155512,18817,100801];
-	const supportedClazz =['glaiver','warrior'];
+	const buffsOverlays =[10155130,10155512,18817,100801,503061];
 	
-	let edgeUI = new Host(mod, 'warr.html', {
-		title: 'edgeui',
-		transparent: true,
-		frame: false,
-		alwaysOnTop: true,
-		fullscreen: false,
-		fullscreenable: false,
-		skipTaskBar: false,
-		width: 260,
-		height: 120,
-		resizable: false,
-		center: true,
-		x: mod.settings.windowPos.edgeUI[0],
-		y: mod.settings.windowPos.edgeUI[1],
-		autoHideMenuBar: true,
-		titleBarStyle: 'hidden',
-		webPreferences: {
-			nodeIntegration: true,
-			devTools: false
+	const classesUI = {
+		"glaiver": {
+			settingsProp:'runeUI',
+			overlay: createHost('valk.html','RuneUI',250,250,mod.settings.windowPos.runeUI[0],mod.settings.windowPos.runeUI[1])
+		} ,
+		"warrior": {
+			settingsProp:'edgeUI',
+			overlay: createHost('warr.html','EdgeUI',250,250,mod.settings.windowPos.edgeUI[0],mod.settings.windowPos.edgeUI[1])
+		},
+		"sorcerer": {
+			settingsProp:'fusionUI',
+			overlay: createHost('sorc.html','FusionUI',250,100,mod.settings.windowPos.fusionUI[0],mod.settings.windowPos.fusionUI[1])
 		}
-	}, false, path.join(__dirname, 'ui'))
-
-	let runeUI = new Host(mod, 'valk.html', {
-		title: 'runeUI',
-		transparent: true,
-		frame: false,
-		alwaysOnTop: true,
-		fullscreen: false,
-		fullscreenable: false,
-		skipTaskBar: false,
-		width: 250,
-		height: 250,
-		resizable: false,
-		center: true,
-		x: mod.settings.windowPos.runeUI[0],
-		y: mod.settings.windowPos.runeUI[1],
-		autoHideMenuBar: false,
-		titleBarStyle: 'hidden',
-		webPreferences: {
-			nodeIntegration: true,
-			devTools: false
-		}
-	}, false, path.join(__dirname, 'ui'));
-
+	}
 	let overlay = undefined,
 		curEdge = 0,
 		openedClazz = '',
@@ -59,7 +28,7 @@ exports.NetworkMod = function edgeUI(mod) {
 		focusChange = true
 
 	mod.game.on('enter_game', () => {
-		if ( supportedClazz.includes(mod.game.me.class) ) {
+		if ( classesUI[mod.game.me.class] ) {
 			mod.command.exec('edgeui');
 		}
 	});
@@ -82,13 +51,10 @@ exports.NetworkMod = function edgeUI(mod) {
 		} else if (overlay && arg == 'scale') {
 			if ( arg2 > 1 || arg2 < 0.5 ) {
 				mod.command.message('Only 0.5 to 1 scaling is supported.');
-			} else if ( openedClazz == 'glaiver' ) {
-				mod.settings.scale.runeUI = parseFloat(arg2)
+			} else if ( classesUI[mod.game.me.class] ) {
+				mod.settings.scale[classesUI[mod.game.me.class].settingsProp] = parseFloat(arg2)
 				overlay.send('edgeResize', { text: parseFloat(arg2)});
-			} else {
-				mod.settings.scale.edgeUI = parseFloat(arg2)
-				overlay.send('edgeResize', { text: parseFloat(arg2)});
-			}
+			} 
 		}
 	})
 	
@@ -97,15 +63,29 @@ exports.NetworkMod = function edgeUI(mod) {
 		
 		overlay.send('ragUpdate',e);
 	});
+	
+	mod.hook('S_START_COOLTIME_SKILL', 3, e=> {
+		if ( !overlay || ( overlay && e.skill.id != 340230) ) return
 		
-	mod.hook('S_PLAYER_STAT_UPDATE', 14, (e) => {
-		if (!mod.game.me.class == 'warrior' || !overlay || curEdge == e.edge) return
-		
-		curEdge = e.edge
-		overlay.send('edgeUpdate', e)
+		overlay.send('trifusion',{id:e.skill.id,duration:e.cooldown});
 	});
 	
-	mod.hook('S_WEAK_POINT', 1, {order: 1}, (e) => {
+	mod.hook('S_PLAYER_STAT_UPDATE', 14, (e) => {
+		if ( !overlay || !classesUI[mod.game.me.class] ) return
+		
+		if ( mod.game.me.class == 'warrior' && curEdge != e.edge ) {
+			e['isWarrior']=true;
+			curEdge = e.edge;
+			overlay.send('edgeUpdate', e);
+		} else if ( mod.game.me.class == 'sorcerer' ) {
+			e['isSorcerer']=true;
+			overlay.send('edgeUpdate', e);
+		} else {
+			return;
+		}
+	});
+	
+	mod.hook('S_WEAK_POINT', 1, (e) => {
 		if ( !overlay || mod.game.me.class != 'glaiver' ) return;
 		
 		if ( e.type == 2 ) {
@@ -117,39 +97,32 @@ exports.NetworkMod = function edgeUI(mod) {
 		} 
 	});
 	
-	mod.hook('S_ABNORMALITY_BEGIN',3, {order: -1}, (e) => {
-		if ( overlay && supportedClazz.includes(mod.game.me.class) && buffsOverlays.includes(e.id) ) {
-			overlay.send('buffs',e);			
-		}
+	mod.hook('S_ABNORMALITY_BEGIN',3, (e) => {
+		if ( !overlay || !classesUI[mod.game.me.class] || !buffsOverlays.includes(e.id) ) return
+		
+		overlay.send('buffs',{id:e.id,duration:parseInt(e.duration)});			
+	});
+	
+	mod.hook('S_ABNORMALITY_REFRESH',2, (e) => {
+		if ( !overlay || !classesUI[mod.game.me.class]) return; 
+		
+		if ( e.id == 503061 ) overlay.send('buffs',{id:e.id,duration:parseInt(e.duration)});
 	});
 	
 	function spawnOverlay() {
-		let openUI = null, pos = null,scale=0.65;
+		if ( !classesUI[mod.game.me.class] ) return;
+		let openUI = classesUI[mod.game.me.class].overlay;
 		
-		if (mod.game.me.class == 'warrior') {
-			mod.command.message(`EdgeUI set to Warrior Mode`);
-			pos = mod.settings.windowPos.edgeUI;
-			scale = mod.settings.scale.edgeUI;
-			openUI = edgeUI;
-		} else if (mod.game.me.class == 'glaiver') {
-			mod.command.message(`EdgeUI set to Valk Mode`);
-			pos = mod.settings.windowPos.runeUI;
-			scale = mod.settings.scale.runeUI;
-			openUI = runeUI;
-		}
-
 		openUI.show();
-		setTimeout(() => { mod.command.exec(`edgeui scale ${scale}`) }, 150)
-		openUI.window.setPosition(pos[0], pos[1]);
+		mod.command.message(`UI set to ${classesUI[mod.game.me.class].settingsProp} Mode`);
+		
+		setTimeout(() => { mod.command.exec(`edgeui scale ${mod.settings.scale[classesUI[mod.game.me.class].settingsProp]}`) }, 150)
+		openUI.window.setPosition(mod.settings.windowPos[classesUI[mod.game.me.class].settingsProp][0], mod.settings.windowPos[classesUI[mod.game.me.class].settingsProp][1]);
 		openUI.window.setAlwaysOnTop(true, 'screen-saver', 1);
 		openUI.window.setVisibleOnAllWorkspaces(true);
 		mod.setInterval(() => { overlay.window.moveTop() }, 500);
 		openUI.window.on('close', () => {
-			if (mod.game.me.class == 'warrior') {
-				mod.settings.windowPos.edgeUI = openUI.window.getPosition();
-			} else if (mod.game.me.class == 'glaiver') {
-				mod.settings.windowPos.runeUI = openUI.window.getPosition();
-			}
+			mod.settings.windowPos[classesUI[openedClazz].settingsProp] = openUI.window.getPosition();
 			mod.clearAllIntervals();
 			overlay = undefined;
 			curEdge = 0;
@@ -157,6 +130,31 @@ exports.NetworkMod = function edgeUI(mod) {
 		openedClazz = mod.game.me.class;
 
 		return openUI;
+	}
+	
+	function createHost(hostFile,title,w,h,x,y) {
+		return new Host(mod, hostFile, {
+			title: title,
+			transparent: true,
+			frame: false,
+			alwaysOnTop: true,
+			fullscreen: false,
+			fullscreenable: false,
+			skipTaskBar: false,
+			width: w,
+			height: h,
+			resizable: false,
+			maximizable:false,
+			center: true,
+			x: x,
+			y: y,
+			autoHideMenuBar: true,
+			titleBarStyle: 'hidden',
+			webPreferences: {
+				nodeIntegration: true,
+				devTools: false
+			}
+		}, false, path.join(__dirname, 'ui'));
 	}
 	
 	this.destructor = () => {}
