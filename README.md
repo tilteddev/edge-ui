@@ -8,7 +8,10 @@ A toolbox/electron gui based workaround for warrior edge being slow/getting stuc
 - Added valk edge ui ( No bug fix or anything is just cosmetics )
    - Runemarks.
    - Godsfall and Ragnarok overlay when its active
-
+- Added sorc fusion ui
+   - Normal and Trifusion bar
+   - Manaboost buff Cooldown
+   - Manaboost overlay when its off cooldown
 ## Preview 
 [Warr Edge UI Preview - Partial edge](https://i.imgur.com/Aigkt1n.png)
 
@@ -18,6 +21,11 @@ A toolbox/electron gui based workaround for warrior edge being slow/getting stuc
 
 [Valk Edge UI Preview](https://i.imgur.com/gcO4ncc.png)
 
+[Sorc Edge UI Preview - Normal Fusion + Manaboost off cd](https://i.imgur.com/stY3LS4.png)
+
+[Sorc Edge UI Preview - Normal Fusion + Manaboost Active](https://i.imgur.com/3Bco6v6.png)
+
+[Sorc Edge UI Preview - TriFusion + Manaboost Active](https://i.imgur.com/Y2mIwuQ.png)
 ## Commands
 
 `/8 edgeui` main command, also used to manually open the ui if you closed it

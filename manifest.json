@@ -1,12 +1,13 @@
 {
 	"files": {
-		"README.md": "f79a320c8821549fa5fac313c91214b0b8ce6baaad76bf42a760f80be03985e9",
-		"config_generator.js": "7d5105a1f0b6b59fc1f421a3d0ec8214a192b8abe5da763f10c426e58aa5fba6",
-		"index.js": "cab27bea92234af5c3ccc97193cbb3e9380f8f69e1858fdbebf856ea79d687b2",
-		"module.json": "b15b592cc17d2a14b79d2ca55c7f00fe3b6ba38dff36aea133331a35a12eda8a",
+		"README.md": "d27839f48cbdd7ee7656a291cbc56a140734331ff221a2cbf3c47a19108d1069",
+		"config_generator.js": "58e150f1a7b675b583d746ff832c8b0f7624a0ba3198b4c69d1f61da208ef1eb",
+		"index.js": "9d23c35188c2760299006d2050a4abb60220a1a4d965d8c8294018af24cfc1c0",
+		"module.json": "692b8f5726ae93fa8768661b6bb60cb7d1e1bfb8e493d0bf3500e5b250930f87",
 		"ui/warr.html": "8eb33fd6524e147e7883d239dd8aa24298108e04033652c83e97791ca3028111",
 		"ui/valk.html": "9281561dc9fa5a33d723bd238bbd4881bb5021e06eb1431af55654223ae242e0",
-		"ui/main.js": "979619f995ba541b882ceb2b3d531f605e5ae6c385b8ab4ac49474e5b377e81e"
+		"ui/sorc.html": "ba4375006a51acf16a668c4dc2733c27b7df922f62cc0f9c0a788f5c3310e630",
+		"ui/main.js": "3c3cabed0a5453916b30886f0979ca7aa68111d09797a9b36c4c27c4cdb766b7"
 	},
 	"defs": {
 		"S_PLAYER_STAT_UPDATE": 14,
