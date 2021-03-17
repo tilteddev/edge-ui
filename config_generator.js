@@ -10,7 +10,8 @@ const DefaultSettings = {
 		edgeUI:0.65,
 		runeUI:0.80,
 		fusionUI:1.0
-	}
+	},
+	draggable:false
 }
 
 module.exports = function MigrateSettings(from_ver, to_ver, settings) {
@@ -31,6 +32,13 @@ module.exports = function MigrateSettings(from_ver, to_ver, settings) {
 				settings.windowPos['fusionUI'] = DefaultSettings.windowPos['fusionUI'];
 				settings.scale['fusionUI'] = DefaultSettings.scale['fusionUI'];
 				break;
+			default:
+				let oldsettings = settings;
+				settings = Object.assign(DefaultSettings, {});
+				for (let option in oldsettings) {
+					if (settings[option]) { settings[option] = oldsettings[option] }
+				}
+			    break;
 		}
 
 		return settings

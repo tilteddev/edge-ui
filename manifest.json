@@ -1,13 +1,13 @@
 {
 	"files": {
-		"README.md": "407e9408fa35b8f8338a371ff6a35547795dfa8339bbcc5f23ef08fef839eaeb",
-		"config_generator.js": "58e150f1a7b675b583d746ff832c8b0f7624a0ba3198b4c69d1f61da208ef1eb",
-		"index.js": "d95ef6a479eb49cc96ecdcd59ebb78814df4a48f8ea48b19e504149e11af9300",
+		"README.md": "dff29567cd4be488173bb099b7f1990cae9457b44d1f3b3a17d3a13c9cae2a26",
+		"config_generator.js": "54b5451ba63d48a6436dc7d86fca03917c2a271cb0c370ab8a7b319b07c47d43",
+		"index.js": "85846b6871cbba1036c364703e402e69a32d878f6129423493eac8c2ace760da",
 		"module.json": "93b672d32acc801491f785093b5735e196dce123a0e0281d025552927e7a8ea4",
-		"ui/warr.html": "8eb33fd6524e147e7883d239dd8aa24298108e04033652c83e97791ca3028111",
+		"ui/warr.html": "481ce720ff14f30f75d7f190eec76e683f4e1f438f0e9c103c51b968a7cef65e",
 		"ui/valk.html": "537afdc8d78f25a229ad32b48fd2606b80f0887d3fdeeec0013976e3cd1c098d",
-		"ui/sorc.html": "ba4375006a51acf16a668c4dc2733c27b7df922f62cc0f9c0a788f5c3310e630",
-		"ui/main.js": "a551f3e54fbe4091f45de3314b29f2b687f5b83953786753e3c06637fea1c73e"
+		"ui/sorc.html": "8ed266de1e3aafbe1b3cd155eb6800c7d2f18f4220efa3a5d3fd359761b4ec49",
+		"ui/main.js": "7b2cc1b4cbbd034f008a287efa8356f14e9ae3d4b5d719a8c34de3301acfb57b"
 	},
 	"defs": {
 		"S_PLAYER_STAT_UPDATE": 14,

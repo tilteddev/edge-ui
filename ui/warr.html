@@ -2,7 +2,7 @@
    <head>
       <script src="main.js"></script>
       <style type="text/css" class="INLINE_PEN_STYLESHEET_ID">		 
-         #edgeCountSvg {
+         #mainSvg {
 		   -webkit-app-region: drag;
 		 }
 
@@ -10,20 +10,17 @@
            position: relative;
            width: 100%;
            overflow: hidden;
-		   -webkit-app-region: drag;
          }
 
 		 img {
 			height: 35px;
 			width: 35px;
-			-webkit-app-region: drag;
 		 }
 
 		 #bottomBar {
 		   overflow: hidden;
 		   z-index: -1;
            position: absolute;
-		   -webkit-app-region: drag;
 		 }
 		 
 		 #edgeNum {
@@ -37,6 +34,7 @@
 		   color:#FFFFFF;
 		   font-family: "Comic Sans MS", "Comic Sans", fantasy;
 		   font-size: 24px;
+		   -webkit-app-region: drag;
 		 }
 		 
 		 #images {
@@ -53,19 +51,17 @@
 		   z-index: -1;
            position: absolute;
 		   bottom:44%;
-		   -webkit-app-region: drag;
 		   text-align: center;
 		 }
 		 
 		 .buffs>b {
 		    font-family: "Comic Sans MS", "Comic Sans", fantasy;
-			-webkit-app-region: drag;
 			font-size: 13px;
 		 }
       </style>
    </head>
    <body id="mainBody" style="transform: scale(1,1);">
-		<svg id="edgeCountSvg" style="width:240;height:10;">
+		<svg id="mainSvg" style="width:240;height:10;">
 			<g>
 				<!--f01934 red c9c9c9 grey fabd2f yellow -->
 				<line id="edgeBar" x1="0" x2="0%" style="stroke:#fabd2f;stroke-width:20;stroke-dasharray=100%;;stroke-dashoffset=50%" />

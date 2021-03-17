@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const { Renderer } = require('tera-mod-ui');
   let mod = new Renderer;
+  
   let cachedTimeout = new Map();
   let cachedInterval = new Map();
   

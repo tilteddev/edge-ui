@@ -9,7 +9,7 @@
 		"guiName": "edge-ui",
 		"niceName": "EdgeUI",
 		"reloadable": true,
-		"settingsVersion": 2,
+		"settingsVersion": 3,
 		"settingsFile": "config.json",
 		"settingsMigrator": "config_generator.js"
 	},

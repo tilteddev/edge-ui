@@ -6,7 +6,6 @@ exports.NetworkMod = function edgeUI(mod) {
 	const { Host } = require('tera-mod-ui');
 	const path = require("path")
 	const buffsOverlays =[10155130,10155512,18817,100801,503061];
-	let isClickThrough = false;
 	
 	const classesUI = {
 		"glaiver": {
@@ -27,7 +26,7 @@ exports.NetworkMod = function edgeUI(mod) {
 		openedClazz = '',
 		focused = null,
 		focusChange = true
-
+	
 	mod.game.on('enter_game', () => {
 		if ( classesUI[mod.game.me.class] ) {
 			mod.command.exec('edgeui');
@@ -49,8 +48,8 @@ exports.NetworkMod = function edgeUI(mod) {
 		} else if (overlay && !arg && !mod.game.me.class == openedClazz ) {
 			overlay = spawnOverlay();
 		} else if ( overlay && arg == 'drag' ) {
-			isClickThrough = !isClickThrough;
-			overlay.window.setIgnoreMouseEvents(isClickThrough, { forward: isClickThrough});
+			mod.settings.draggable= !mod.settings.draggable;
+			overlay.window.setIgnoreMouseEvents( !mod.settings.draggable, { forward: !mod.settings.draggable});
 			mod.command.message(`Click Through mode is ${isClickThrough ? 'enabled' : 'disabled'}`)
 		} else if (!overlay && !arg || !overlay && ['open', 'gui', 'ui'].includes(arg)) {
 			overlay = spawnOverlay();
@@ -128,7 +127,6 @@ exports.NetworkMod = function edgeUI(mod) {
 		
 		openUI.show();
 		mod.command.message(`UI set to ${classesUI[mod.game.me.class].settingsProp} Mode`);
-		
 		setTimeout(() => { mod.command.exec(`edgeui scale ${mod.settings.scale[classesUI[mod.game.me.class].settingsProp]}`) }, 150)
 		openUI.window.setPosition(mod.settings.windowPos[classesUI[mod.game.me.class].settingsProp][0], mod.settings.windowPos[classesUI[mod.game.me.class].settingsProp][1]);
 		openUI.window.setAlwaysOnTop(true, 'screen-saver', 1);
@@ -140,7 +138,7 @@ exports.NetworkMod = function edgeUI(mod) {
 			overlay = undefined;
 			curEdge = 0;
 		});
-		
+
 		openedClazz = mod.game.me.class;
 
 		return openUI;

@@ -7,17 +7,17 @@
                 0
             ],
             "runeUI": [
-                0,
-                0
+                599,
+                454
             ],
             "fusionUI": [
-                394,
-                523
+                0,
+                0
             ]
         },
         "scale": {
             "edgeUI": 0.65,
-            "runeUI": 0.7,
+            "runeUI": 0.6,
             "fusionUI": 1
         }
     }

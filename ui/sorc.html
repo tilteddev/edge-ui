@@ -2,7 +2,7 @@
    <head>
       <script src="main.js"></script>
       <style type="text/css" class="INLINE_PEN_STYLESHEET_ID">
-		 #runeCountSvg,#boostSvg {
+		 #mainSvg,#boostSvg {
 		   -webkit-app-region: drag;
 		 }
 		 
@@ -11,7 +11,6 @@
            width: 250;
            height:70;
            overflow: hidden;
-		   -webkit-app-region: drag;
          }
 		 
          .boostSvg>svg {
@@ -23,6 +22,7 @@
 		   -webkit-app-region: drag;
 		   display:'inline';
          }
+		 
 		 .boostSvg>div {
 		   overflow: hidden;
 		   z-index: -1;
@@ -39,7 +39,7 @@
    </head>
    <!-- cb68db arcane 3a6ac9 ice-->
    <body id="mainBody" style="transform: scale(1, 1);">
-		<svg id="runeCountSvg" style="width:250;height:100%;">
+		<svg id="mainSvg" style="width:250;height:100%;">
 			<g>
 				<rect id="lightningEdge" width="80" height="5" x="0" style="fill:#fdf9f9;stroke:#fdf9f9;stroke-width:0.5"/>
 				<rect id="iceEdge" width="80" height="5" x="85" style="fill:#fdf9f9;stroke:#fdf9f9;stroke-width:0.5"/>
