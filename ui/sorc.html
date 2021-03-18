@@ -1,64 +1,63 @@
 <html>
-   <head>
-      <script src="main.js"></script>
-      <style type="text/css" class="INLINE_PEN_STYLESHEET_ID">
-		 #mainSvg,#boostSvg {
-		   -webkit-app-region: drag;
-		 }
-		 
-         body {
-           position: relative;
-           width: 250;
-           height:70;
-           overflow: hidden;
-         }
-		 
-         .boostSvg>svg {
-           overflow: hidden;
-		   z-index: -1;
-           position: absolute;
-           bottom:65%;
-		   left:15%;
-		   -webkit-app-region: drag;
-		   display:'inline';
-         }
-		 
-		 .boostSvg>div {
-		   overflow: hidden;
-		   z-index: -1;
-           position: absolute;
-		   color:#0bf94f;
-		   bottom:50%;
-		   font-family: "Comic Sans MS", "Comic Sans", fantasy;
-		   font-size: 24px;
-		   background: rgba(255, 255, 255, .1); 
-		   -webkit-app-region: drag;
-		   display:none;
-		 }
-      </style>
-   </head>
-   <!-- cb68db arcane 3a6ac9 ice-->
-   <body id="mainBody" style="transform: scale(1, 1);">
-		<svg id="mainSvg" style="width:250;height:100%;">
-			<g>
-				<rect id="lightningEdge" width="80" height="5" x="0" style="fill:#fdf9f9;stroke:#fdf9f9;stroke-width:0.5"/>
-				<rect id="iceEdge" width="80" height="5" x="85" style="fill:#fdf9f9;stroke:#fdf9f9;stroke-width:0.5"/>
-				<rect id="fireEdge" width="80" height="5" x="170" style="fill:#fdf9f9;stroke:#fdf9f9;stroke-width:0.5"/>
-			</g>
-		</svg>
-		
-		<div class="boostSvg">
-			<div id="503061"><a id="t503061">30</a></div>
-			<svg id="340230" style="width:200;height:10%;"viewBox="0 0 250 5%">
-				<defs>
-					<linearGradient id="linear" gradientUnits="userSpaceOnUse">
-						<stop offset="0" stop-color="#cb68db"></stop>
-						<stop offset=".5" stop-color="#228ae6"></stop>
-						<stop offset="1" stop-color="#f4483f"></stop>
-					</linearGradient>
-				</defs>
-				<line id="manaboostBar" x1="0" y1="0" x2="100%" y2="0" stroke="url(#linear)" stroke-width="6"/> 
-			</svg>
-		</div>
-   </body>
+
+<head>
+   <script src="main.js"></script>
+   <style type="text/css" class="INLINE_PEN_STYLESHEET_ID">
+      body {
+         position: relative;
+         width: 250;
+         height: 70;
+         overflow: hidden;
+         -webkit-app-region: drag;
+         -webkit-user-select: none;
+      }
+
+      .boostSvg>svg {
+         overflow: hidden;
+         z-index: -1;
+         position: absolute;
+         bottom: 65%;
+         left: 15%;
+         display: 'inline';
+      }
+
+      .boostSvg>div {
+         overflow: hidden;
+         z-index: -1;
+         position: absolute;
+         color: #0bf94f;
+         bottom: 50%;
+         font-family: "Comic Sans MS", "Comic Sans", fantasy;
+         font-size: 24px;
+         background: rgba(0, 0, 0, .7);
+         display: none;
+      }
+   </style>
+</head>
+<!-- cb68db arcane 3a6ac9 ice-->
+
+<body id="mainBody" style="transform: scale(1, 1);">
+   <svg id="mainSvg" style="width:250;height:100%;">
+      <g>
+         <rect id="lightningEdge" width="80" height="5" x="0" style="fill:#fdf9f9;stroke:#fdf9f9;stroke-width:0.5" />
+         <rect id="iceEdge" width="80" height="5" x="85" style="fill:#fdf9f9;stroke:#fdf9f9;stroke-width:0.5" />
+         <rect id="fireEdge" width="80" height="5" x="170" style="fill:#fdf9f9;stroke:#fdf9f9;stroke-width:0.5" />
+      </g>
+   </svg>
+
+   <div class="boostSvg">
+      <div id="503061"><a id="t503061">30</a></div>
+      <svg id="340230" style="width:200;height:10%;" viewBox="0 0 250 5%">
+         <defs>
+            <linearGradient id="linear" gradientUnits="userSpaceOnUse">
+               <stop offset="0" stop-color="#cb68db"></stop>
+               <stop offset=".5" stop-color="#228ae6"></stop>
+               <stop offset="1" stop-color="#f4483f"></stop>
+            </linearGradient>
+         </defs>
+         <line id="manaboostBar" x1="0" y1="0" x2="100%" y2="0" stroke="url(#linear)" stroke-width="6" />
+      </svg>
+   </div>
+</body>
+
 </html>

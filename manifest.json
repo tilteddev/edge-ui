@@ -1,18 +1,18 @@
 {
-	"files": {
-		"README.md": "dff29567cd4be488173bb099b7f1990cae9457b44d1f3b3a17d3a13c9cae2a26",
-		"config_generator.js": "54b5451ba63d48a6436dc7d86fca03917c2a271cb0c370ab8a7b319b07c47d43",
-		"index.js": "85846b6871cbba1036c364703e402e69a32d878f6129423493eac8c2ace760da",
-		"module.json": "176257373d177ff22e0bb3034ab7d97dd62c93fa24566af013493472283860c7",
-		"ui/warr.html": "481ce720ff14f30f75d7f190eec76e683f4e1f438f0e9c103c51b968a7cef65e",
-		"ui/valk.html": "537afdc8d78f25a229ad32b48fd2606b80f0887d3fdeeec0013976e3cd1c098d",
-		"ui/sorc.html": "8ed266de1e3aafbe1b3cd155eb6800c7d2f18f4220efa3a5d3fd359761b4ec49",
-		"ui/main.js": "7b2cc1b4cbbd034f008a287efa8356f14e9ae3d4b5d719a8c34de3301acfb57b"
-	},
-	"defs": {
-		"S_PLAYER_STAT_UPDATE": 14,
-		"S_WEAK_POINT": 1,
-		"S_PLAYER_CHANGE_STAMINA": 1,
-		"S_ABNORMALITY_BEGIN": 3
-	}
+   "files": {
+      "config_generator.js": "9171ee6966b7657d0510b1225dc4f884b61c82df0f19166f6f74bd18fbfa7304",
+      "index.js": "133dc98fcd7589babed68b2a27712e6652c72b9d1701e5cc31e4e63506a32892",
+      "module.json": "176257373d177ff22e0bb3034ab7d97dd62c93fa24566af013493472283860c7",
+      "README.md": "dff29567cd4be488173bb099b7f1990cae9457b44d1f3b3a17d3a13c9cae2a26",
+      "ui/main.js": "973f66ed2616d935b64564c62a217f2473cfc974cf021165549d4c3b2d452ede",
+      "ui/sorc.html": "46c6ef837e0328e9b9b1d1c313b4ce97306989629b87f439fe52e19f4b72f36f",
+      "ui/valk.html": "1ae0c05c5a8f74ab88d4eb060a9ea5b19db2f49ccc665abb39a98d934def3ffe",
+      "ui/warr.html": "458640154f9f4fa20c86c80a05544f22d65d5bec92f51b3117d0fa866016b3d2"
+   },
+   "defs": {
+      "S_PLAYER_STAT_UPDATE": 14,
+      "S_WEAK_POINT": 1,
+      "S_PLAYER_CHANGE_STAMINA": 1,
+      "S_ABNORMALITY_BEGIN": 3
+   }
 }

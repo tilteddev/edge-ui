@@ -1,75 +1,78 @@
 <html>
-   <head>
-      <script src="main.js"></script>
-      <style type="text/css" class="INLINE_PEN_STYLESHEET_ID">
-		 #runeCountSvg {
-		   -webkit-app-region: drag;
-		 }
-		 
-         body {
-           position: relative;
-           width: 100%;
-           overflow: hidden;
-		   -webkit-app-region: drag;
-         }
-		 
-		 img {
-			height: 35px;
-			width: 35px;
-			-webkit-app-region: drag;
-		 }
-		 
-		 #bottomBar {
-		   overflow: hidden;
-		   z-index: -1;
-           position: absolute;
-		   top:12%;
-		   left:1%;
-		   -webkit-app-region: drag;
-		 }
-		 
-		 .buffs {
-		   overflow: hidden;
-		   z-index: -1;
-           position: absolute;
-		   top:40%;
-		   -webkit-app-region: drag;
-		 }
 
-		 .buffs>b {
-		    font-family: "Comic Sans MS", "Comic Sans", fantasy;
-			-webkit-app-region: drag;
-			font-size: 13px;
-		 }
-      </style>
-   </head>
-   <body id="mainBody" style="transform: scale(0.65, 0.65);">
-		<svg id="runeCountSvg" style="width:250;height:100;">
-			<g>
-				<circle id="rune1" class="runeCount" cx="50" cy="50" r="5%" style="fill:#fdf9f9;stroke-width:1;stroke:#737984;" />
-				<circle id="rune2" class="runeCount" cx="75" cy="50" r="5%" style="fill:#fdf9f9;stroke-width:1;stroke:#737984;" />
-				<circle id="rune3" class="runeCount" cx="100" cy="50" r="5%" style="fill:#fdf9f9;stroke-width:1;stroke:#737984;" />
-				<circle id="rune4" class="runeCount" cx="125" cy="50" r="5%" style="fill:#fdf9f9;stroke-width:1;stroke:#737984;" />
-				<circle id="rune5" class="runeCount" cx="150" cy="50" r="5%" style="fill:#fdf9f9;stroke-width:1;stroke:#737984;" />
-				<circle id="rune6" class="runeCount" cx="175" cy="50" r="5%" style="fill:#fdf9f9;stroke-width:1;stroke:#737984;" />
-				<circle id="rune7" class="runeCount" cx="200" cy="50" r="5%" style="fill:#fdf9f9;stroke-width:1;stroke:#737984;" />
-			</g>
-		</svg>
-		<div id="bottomBar" style="width:250;height:90">
-			<div class="buffs" id="10155130" style="display:none;text-align:center;left:16%;">
-				<img src="https://i.imgur.com/ddIqqX0.png"/><br/>
-				<b id="t10155130" style="color: #FFFFFF;">r1</b>
-			</div>
-			
-			<div class="buffs" id="10155512" style="display:none;text-align:center;left:16%;">
-				<img src="https://i.imgur.com/DDbReWN.png"/><br/>
-				<b id="t10155512" style="color: #FFFFFF">gf1</b>
-			</div>
-			
-			<div class="buffs" id="18817" style="display:none;text-align:center;left:35%;">
-				<img src="https://i.imgur.com/qUmH6Yn.png"/><br/>
-				<b id="t18817" style="color: #FFFFFF">g1</b>
-			</div>
-		</div>
-   </body>
+<head>
+   <script src="main.js"></script>
+   <style type="text/css" class="INLINE_PEN_STYLESHEET_ID">
+      body {
+         position: relative;
+         width: 100%;
+         overflow: hidden;
+         -webkit-app-region: drag;
+         -webkit-user-select: none;
+      }
+
+      img {
+         height: 35px;
+         width: 35px;
+      }
+
+      #bottomBar {
+         overflow: hidden;
+         z-index: -1;
+         position: absolute;
+         top: 12%;
+         left: 1%;
+      }
+
+      .buffs {
+         overflow: hidden;
+         z-index: -1;
+         position: absolute;
+         top: 40%;
+      }
+
+      .buffs>b {
+         font-family: "Comic Sans MS", "Comic Sans", fantasy;
+         font-size: 13px;
+      }
+   </style>
+</head>
+
+<body id="mainBody" style="transform: scale(0.65, 0.65);">
+   <svg id="mainSvg" style="width:250;height:100;">
+      <g>
+         <circle id="rune1" class="runeCount" cx="50" cy="50" r="5%"
+            style="fill:#fdf9f9;stroke-width:1;stroke:#737984;" />
+         <circle id="rune2" class="runeCount" cx="75" cy="50" r="5%"
+            style="fill:#fdf9f9;stroke-width:1;stroke:#737984;" />
+         <circle id="rune3" class="runeCount" cx="100" cy="50" r="5%"
+            style="fill:#fdf9f9;stroke-width:1;stroke:#737984;" />
+         <circle id="rune4" class="runeCount" cx="125" cy="50" r="5%"
+            style="fill:#fdf9f9;stroke-width:1;stroke:#737984;" />
+         <circle id="rune5" class="runeCount" cx="150" cy="50" r="5%"
+            style="fill:#fdf9f9;stroke-width:1;stroke:#737984;" />
+         <circle id="rune6" class="runeCount" cx="175" cy="50" r="5%"
+            style="fill:#fdf9f9;stroke-width:1;stroke:#737984;" />
+         <circle id="rune7" class="runeCount" cx="200" cy="50" r="5%"
+            style="fill:#fdf9f9;stroke-width:1;stroke:#737984;" />
+      </g>
+   </svg>
+   <div id="bottomBar" style="width:250;height:90">
+      <div class="buffs" id="10155130" style="display:none;text-align:center;left:16%;">
+         <img src="https://i.imgur.com/ddIqqX0.png" /><br />
+         <b id="t10155130" style="color: #FFFFFF;">r1</b>
+      </div>
+
+      <div class="buffs" id="10155512" style="display:none;text-align:center;left:16%;">
+         <img src="https://i.imgur.com/DDbReWN.png" /><br />
+         <b id="t10155512" style="color: #FFFFFF">gf1</b>
+      </div>
+
+      <div class="buffs" id="18817" style="display:none;text-align:center;left:35%;">
+         <img src="https://i.imgur.com/qUmH6Yn.png" /><br />
+         <b id="t18817" style="color: #FFFFFF">g1</b>
+      </div>
+   </div>
+</body>
+
 </html>
