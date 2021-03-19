@@ -1,14 +1,13 @@
 {
    "files": {
-      "config_generator.js": "5a1738751d7d58dfa8ce48047dec5f7f40913931366164664b561efbad059613",
-      "index.js": "89b437507a9bfcba8ee8078dfdc1bee712730f59dd3991ae4510d3c0d4505cb8",
-      "module.json": "176257373d177ff22e0bb3034ab7d97dd62c93fa24566af013493472283860c7",
-      "pipeline_checksum.js": "a660dd1f4419f352d8cdcb9d63796f193a701eb542e07b24317e62464c17b661",
-      "README.md": "dff29567cd4be488173bb099b7f1990cae9457b44d1f3b3a17d3a13c9cae2a26",
-      "ui/main.js": "973f66ed2616d935b64564c62a217f2473cfc974cf021165549d4c3b2d452ede",
-      "ui/sorc.html": "46c6ef837e0328e9b9b1d1c313b4ce97306989629b87f439fe52e19f4b72f36f",
-      "ui/valk.html": "1ae0c05c5a8f74ab88d4eb060a9ea5b19db2f49ccc665abb39a98d934def3ffe",
-      "ui/warr.html": "458640154f9f4fa20c86c80a05544f22d65d5bec92f51b3117d0fa866016b3d2"
+      "config_generator.js": "f8cee5d8ecfa973e9cf6d8fbc9b2c87bc24706f8ac0ed2a45e43f7d14f2d5f15",
+      "index.js": "9ff6ba57992df0cc656ea0027fc2dd10d30c3b927d88ea95ce4d065d14e7a1c7",
+      "module.json": "774f28ad089f9a659dea063dad03b3c8bc0a4c6bf2c245b0efd2b7d5a40b2d71",
+      "README.md": "f9aaacbd41862b1f6ffd047b365e815d83c8e1a3f665002ca37f278961a47f4f",
+      "ui/main.js": "4e2d874afe8586c185c432fea28fb015b53f44e4597e5a03cde84b0980f5b0c5",
+      "ui/sorc.html": "b8d6889848f19a6a23642353d38f1fef6572c6f1c52b7c95c888a02fcf85380b",
+      "ui/valk.html": "4e20c025996898d8fe6eef26c6e7039903f7ea7b7aa98de1ad3965594c2334e0",
+      "ui/warr.html": "732ed14f95c74ebe0579c88e708631be7537117edfcf29aca0f5e1bbb04155e9"
    },
    "defs": {
       "S_PLAYER_STAT_UPDATE": 14,

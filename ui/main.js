@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 document.addEventListener('DOMContentLoaded', () => {
    const { Renderer } = require('tera-mod-ui');
    let mod = new Renderer;
@@ -7,68 +8,68 @@ document.addEventListener('DOMContentLoaded', () => {
 
    mod.on('edgeResize', (y) => {
       document.getElementById("mainBody").style.transform = `scale(${y.text})`;
-   })
+   });
 
    mod.on('edgeUpdate', (y) => {
       if (y.hasOwnProperty('runemarksAdded')) {
          switch (y.runemarksAdded) {
             case 0: {
-               document.getElementById(`rune1`).style['fill'] = '#fdf9f9';
-               document.getElementById(`rune2`).style['fill'] = '#fdf9f9';
-               document.getElementById(`rune3`).style['fill'] = '#fdf9f9';
-               document.getElementById(`rune4`).style['fill'] = '#fdf9f9';
-               document.getElementById(`rune5`).style['fill'] = '#fdf9f9';
-               document.getElementById(`rune6`).style['fill'] = '#fdf9f9';
-               document.getElementById(`rune7`).style['fill'] = '#fdf9f9';
+               document.getElementById(`rune1`).style.fill = '#fdf9f9';
+               document.getElementById(`rune2`).style.fill = '#fdf9f9';
+               document.getElementById(`rune3`).style.fill = '#fdf9f9';
+               document.getElementById(`rune4`).style.fill = '#fdf9f9';
+               document.getElementById(`rune5`).style.fill = '#fdf9f9';
+               document.getElementById(`rune6`).style.fill = '#fdf9f9';
+               document.getElementById(`rune7`).style.fill = '#fdf9f9';
             } break;
 
             case 1: {
-               document.getElementById(`rune1`).style['fill'] = '#EAAC43';
+               document.getElementById(`rune1`).style.fill = '#EAAC43';
             } break;
 
             case 2: {
-               document.getElementById(`rune1`).style['fill'] = '#EAAC43';
-               document.getElementById(`rune2`).style['fill'] = '#EAAC43';
+               document.getElementById(`rune1`).style.fill = '#EAAC43';
+               document.getElementById(`rune2`).style.fill = '#EAAC43';
             } break;
 
             case 3: {
-               document.getElementById(`rune1`).style['fill'] = '#EAAC43';
-               document.getElementById(`rune2`).style['fill'] = '#EAAC43';
-               document.getElementById(`rune3`).style['fill'] = '#EAAC43';
+               document.getElementById(`rune1`).style.fill = '#EAAC43';
+               document.getElementById(`rune2`).style.fill = '#EAAC43';
+               document.getElementById(`rune3`).style.fill = '#EAAC43';
             } break;
 
             case 4: {
-               document.getElementById(`rune1`).style['fill'] = '#EAAC43';
-               document.getElementById(`rune2`).style['fill'] = '#EAAC43';
-               document.getElementById(`rune3`).style['fill'] = '#EAAC43';
-               document.getElementById(`rune4`).style['fill'] = '#EAAC43';
+               document.getElementById(`rune1`).style.fill = '#EAAC43';
+               document.getElementById(`rune2`).style.fill = '#EAAC43';
+               document.getElementById(`rune3`).style.fill = '#EAAC43';
+               document.getElementById(`rune4`).style.fill = '#EAAC43';
             } break;
 
             case 5: {
-               document.getElementById(`rune1`).style['fill'] = '#EAAC43';
-               document.getElementById(`rune2`).style['fill'] = '#EAAC43';
-               document.getElementById(`rune3`).style['fill'] = '#EAAC43';
-               document.getElementById(`rune4`).style['fill'] = '#EAAC43';
-               document.getElementById(`rune5`).style['fill'] = '#EAAC43';
+               document.getElementById(`rune1`).style.fill = '#EAAC43';
+               document.getElementById(`rune2`).style.fill = '#EAAC43';
+               document.getElementById(`rune3`).style.fill = '#EAAC43';
+               document.getElementById(`rune4`).style.fill = '#EAAC43';
+               document.getElementById(`rune5`).style.fill = '#EAAC43';
             } break;
 
             case 6: {
-               document.getElementById(`rune1`).style['fill'] = '#EAAC43';
-               document.getElementById(`rune2`).style['fill'] = '#EAAC43';
-               document.getElementById(`rune3`).style['fill'] = '#EAAC43';
-               document.getElementById(`rune4`).style['fill'] = '#EAAC43';
-               document.getElementById(`rune5`).style['fill'] = '#EAAC43';
-               document.getElementById(`rune6`).style['fill'] = '#EAAC43';
+               document.getElementById(`rune1`).style.fill = '#EAAC43';
+               document.getElementById(`rune2`).style.fill = '#EAAC43';
+               document.getElementById(`rune3`).style.fill = '#EAAC43';
+               document.getElementById(`rune4`).style.fill = '#EAAC43';
+               document.getElementById(`rune5`).style.fill = '#EAAC43';
+               document.getElementById(`rune6`).style.fill = '#EAAC43';
             } break;
 
             case 7: {
-               document.getElementById(`rune1`).style['fill'] = '#EAAC43';
-               document.getElementById(`rune2`).style['fill'] = '#EAAC43';
-               document.getElementById(`rune3`).style['fill'] = '#EAAC43';
-               document.getElementById(`rune4`).style['fill'] = '#EAAC43';
-               document.getElementById(`rune5`).style['fill'] = '#EAAC43';
-               document.getElementById(`rune6`).style['fill'] = '#EAAC43';
-               document.getElementById(`rune7`).style['fill'] = '#F01934';
+               document.getElementById(`rune1`).style.fill = '#EAAC43';
+               document.getElementById(`rune2`).style.fill = '#EAAC43';
+               document.getElementById(`rune3`).style.fill = '#EAAC43';
+               document.getElementById(`rune4`).style.fill = '#EAAC43';
+               document.getElementById(`rune5`).style.fill = '#EAAC43';
+               document.getElementById(`rune6`).style.fill = '#EAAC43';
+               document.getElementById(`rune7`).style.fill = '#F01934';
             } break;
          }
       } else if (y.hasOwnProperty('isWarrior') && y.isWarrior) {
@@ -81,9 +82,9 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('edgeBar').setAttribute('x2', y.edge * 10 + '%');
          }
       } else if (y.hasOwnProperty('isSorcerer') && y.isSorcerer) {
-         document.getElementById("lightningEdge").style['fill'] = y.lightningEdge > 0 ? '#cb68db' : '#fdf9f9';
-         document.getElementById("iceEdge").style['fill'] = y.iceEdge > 0 ? '#228ae6' : '#fdf9f9';
-         document.getElementById("fireEdge").style['fill'] = y.fireEdge > 0 ? '#f4483f' : '#fdf9f9';
+         document.getElementById("lightningEdge").style.fill = y.lightningEdge > 0 ? '#cb68db' : '#fdf9f9';
+         document.getElementById("iceEdge").style.fill = y.iceEdge > 0 ? '#228ae6' : '#fdf9f9';
+         document.getElementById("fireEdge").style.fill = y.fireEdge > 0 ? '#f4483f' : '#fdf9f9';
       }
    })
 

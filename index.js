@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 exports.NetworkMod = function edgeUI(mod) {
    //constructor(mod) {
    if (!global.TeraProxy.GUIMode)
@@ -20,7 +21,7 @@ exports.NetworkMod = function edgeUI(mod) {
          settingsProp: 'fusionUI',
          overlay: createHost('sorc.html', 'FusionUI', 250, 100, mod.settings.windowPos.fusionUI[0], mod.settings.windowPos.fusionUI[1])
       }
-   }
+   };
    
    let overlay = undefined,
       curEdge = 0,
@@ -170,7 +171,7 @@ exports.NetworkMod = function edgeUI(mod) {
       overlayUI.window.setIgnoreMouseEvents(!mod.settings.draggable, {
          forward: !mod.settings.draggable
       });
-      mod.setInterval(() => { moveTop() }, 500);
+      mod.setInterval(() => { moveTop(); }, 500);
 
       openedClazz = mod.game.me.class;
 
@@ -202,9 +203,9 @@ exports.NetworkMod = function edgeUI(mod) {
       }, false, path.join(__dirname, 'ui'));
    }
 
-   this.destructor = () => { }
-   this.saveState = () => { }
-   this.loadState = state => { }
-}
+   this.destructor = () => { };
+   this.saveState = () => { };
+   this.loadState = state => { };
+};
 
 //}

@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 "use strict";
 
 const DefaultSettings = {
@@ -43,4 +44,4 @@ module.exports = function MigrateSettings(from_ver, to_ver, settings) {
 
       return settings;
    }
-}
+};
