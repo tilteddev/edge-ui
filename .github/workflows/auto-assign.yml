@@ -1,0 +1,13 @@
+name: Auto Assign Issue
+on:
+    issues:
+        types: [opened]
+jobs:
+    auto-assign:
+        runs-on: ubuntu-latest
+        steps:
+            - name: 'Auto-assign issue'
+              uses: pozil/auto-assign-issue@v1.0.3
+              with:
+                  repo-token: ${{ secrets.GITHUB_TOKEN }}
+                  assignees: tilteddev
