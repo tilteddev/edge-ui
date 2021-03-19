@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
          }
 
          let buffDurationInterval = setInterval(() => {
-            buffDuration -= 1
+            buffDuration -= 1;
             if (buffDuration >= 0) document.getElementById('t' + buff.id).innerHTML = buffDuration;
             if (buffDuration == 0) {
                document.getElementById(buff.id).style.display = 'none';
