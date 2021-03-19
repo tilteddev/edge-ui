@@ -75,10 +75,10 @@ document.addEventListener('DOMContentLoaded', () => {
       } else if (y.hasOwnProperty('isWarrior') && y.isWarrior) {
          document.getElementById("edgeNum").innerHTML = `<b>${y.edge}</b>`;
          if (y.edge == 0) {
-            document.getElementById('edgeBar').style['stroke'] = '#fabd2f';
+            document.getElementById('edgeBar').style.stroke= '#fabd2f';
             document.getElementById('edgeBar').setAttribute('x2', '0%');
          } else {
-            if (y.edge == 10) document.getElementById('edgeBar').style['stroke'] = '#f01934';
+            if (y.edge == 10) document.getElementById('edgeBar').style.stroke = '#f01934';
             document.getElementById('edgeBar').setAttribute('x2', y.edge * 10 + '%');
          }
       } else if (y.hasOwnProperty('isSorcerer') && y.isSorcerer) {
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
          document.getElementById("iceEdge").style.fill = y.iceEdge > 0 ? '#228ae6' : '#fdf9f9';
          document.getElementById("fireEdge").style.fill = y.fireEdge > 0 ? '#f4483f' : '#fdf9f9';
       }
-   })
+   });
 
    mod.on('buffs', (buff) => {
       if (buff.isActive) {
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (buffDuration >= 0) document.getElementById('t' + buff.id).innerHTML = buffDuration;
             if (buffDuration == 0) {
                document.getElementById(buff.id).style.display = 'none';
-               cachedInterval.delete(buff.id)
+               cachedInterval.delete(buff.id);
                clearInterval(buffDurationInterval);
             }
          }, 980);
@@ -138,4 +138,4 @@ document.addEventListener('DOMContentLoaded', () => {
          document.getElementById(trifusion.id).style.display = 'inline';
       }
    });
-})
+});
