@@ -8,7 +8,7 @@ let diffCount = 0;
 let existingManifest = JSON.parse(fs.readFileSync('manifest.json'));
 
 function checkSum(dirPath) {
-   let dirs = fs.readdirSync(dirPath)
+   let dirs = fs.readdirSync(dirPath);
    dirs.forEach((file) => {
       if (!excl.includes(file)) {
          if (fs.statSync(dirPath + "/" + file).isDirectory()) {
@@ -19,7 +19,7 @@ function checkSum(dirPath) {
             files[keyFile] = sha256sum;
             if (!existingManifest.files[keyFile] || files[keyFile] != existingManifest.files[keyFile]) {
                diffCount += 1;
-               console.log(`SHA256SUM of ${keyFile} will be updated  ►  ${sha256sum}`)
+               console.log(`SHA256SUM of ${keyFile} will be updated  ►  ${sha256sum}`);
             }
 
          }
@@ -30,7 +30,7 @@ function checkSum(dirPath) {
 checkSum(__dirname);
 
 if (diffCount > 0) {
-   console.log('update required')
+   console.log('update required');
    existingManifest.files = files;
    fs.writeFileSync('manifest.json', JSON.stringify(existingManifest, null, 3));
 }

@@ -4,7 +4,7 @@ exports.NetworkMod = function edgeUI(mod) {
       throw new Error('Proxy GUI is not running!');
 
    const { Host } = require('tera-mod-ui');
-   const path = require("path")
+   const path = require("path");
    const buffsOverlays = [10155130, 10155512, 18817, 100801, 503061];
 
    const classesUI = {
@@ -27,7 +27,7 @@ exports.NetworkMod = function edgeUI(mod) {
       openedClazz = '',
       focused = null,
       focusChange = true,
-      moving = false
+      moving = false;
 
    async function moveTop() {
       focused = await mod.clientInterface.hasFocus();
@@ -35,7 +35,7 @@ exports.NetworkMod = function edgeUI(mod) {
       if (!overlay) return;
       if (!focused && focusChange && !moving) { overlay.hide(); focusChange = false; }
       if (focused && !focusChange) { overlay.show(); focusChange = true; }
-      if (focused) overlay.window.moveTop()
+      if (focused) overlay.window.moveTop();
    }
 
    mod.game.on('enter_game', () => {
@@ -48,7 +48,7 @@ exports.NetworkMod = function edgeUI(mod) {
       overlay.close();
       overlay = undefined;
       mod.clearAllIntervals();
-   })
+   });
 
    mod.command.add('edgeui', (arg, arg2) => {
       if (overlay && !arg && mod.game.me.class == openedClazz) {
@@ -61,20 +61,20 @@ exports.NetworkMod = function edgeUI(mod) {
          overlay.window.setIgnoreMouseEvents(!mod.settings.draggable, {
             forward: !mod.settings.draggable
          });
-         mod.command.message(`Click Through mode is ${!mod.settings.draggable ? 'enabled' : 'disabled'}`)
+         mod.command.message(`Click Through mode is ${!mod.settings.draggable ? 'enabled' : 'disabled'}`);
       } else if (!overlay && !arg || !overlay && ['open', 'gui', 'ui'].includes(arg)) {
          overlay = spawnOverlay();
       } else if (overlay && arg == 'scale') {
          if (arg2 > 1 || arg2 < 0.5) {
             mod.command.message('Only 0.5 to 1 scaling is supported.');
          } else if (classesUI[mod.game.me.class]) {
-            mod.settings.scale[classesUI[mod.game.me.class].settingsProp] = parseFloat(arg2)
+            mod.settings.scale[classesUI[mod.game.me.class].settingsProp] = parseFloat(arg2);
             overlay.send('edgeResize', {
                text: parseFloat(arg2)
             });
          }
       }
-   })
+   });
 
    //specific to player itself
    mod.hook('S_PLAYER_CHANGE_STAMINA', 1, (e) => {
@@ -84,7 +84,7 @@ exports.NetworkMod = function edgeUI(mod) {
    });
 
    mod.hook('S_START_COOLTIME_SKILL', 3, e => {
-      if (!overlay || (overlay && e.skill.id != 340230)) return
+      if (!overlay || (overlay && e.skill.id != 340230)) return;
 
       overlay.send('trifusion', {
          id: e.skill.id,
@@ -93,7 +93,7 @@ exports.NetworkMod = function edgeUI(mod) {
    });
 
    mod.hook('S_PLAYER_STAT_UPDATE', 14, (e) => {
-      if (!overlay || !classesUI[mod.game.me.class]) return
+      if (!overlay || !classesUI[mod.game.me.class]) return;
 
       if (mod.game.me.class == 'warrior' && curEdge != e.edge) {
          e['isWarrior'] = true;
@@ -111,17 +111,17 @@ exports.NetworkMod = function edgeUI(mod) {
       if (!overlay || mod.game.me.class != 'glaiver') return;
 
       if (e.type == 2) {
-         overlay.send('edgeUpdate', e)
+         overlay.send('edgeUpdate', e);
       } else if (e.target == mod.game.me.gameId && e.type == 0) {
-         overlay.send('edgeUpdate', e)
+         overlay.send('edgeUpdate', e);
       } else if (e.type == 0 || e.type == 1 || (e.type == 3 && e.skill == 0)) {
-         overlay.send('edgeUpdate', e)
+         overlay.send('edgeUpdate', e);
       }
    });
 
    // global packet and required to check against player id
    mod.hook('S_ABNORMALITY_BEGIN', 3, (e) => {
-      if (!overlay || !classesUI[mod.game.me.class] || e.target != mod.game.me.gameId || !buffsOverlays.includes(e.id)) return
+      if (!overlay || !classesUI[mod.game.me.class] || e.target != mod.game.me.gameId || !buffsOverlays.includes(e.id)) return;
 
       overlay.send('buffs', {
          id: e.id,
@@ -154,13 +154,13 @@ exports.NetworkMod = function edgeUI(mod) {
       overlayUI.show();
       mod.command.message(`UI set to ${classesUI[mod.game.me.class].settingsProp} Mode`);
       setTimeout(() => {
-         mod.command.exec(`edgeui scale ${mod.settings.scale[classesUI[mod.game.me.class].settingsProp]}`)
-      }, 350)
+         mod.command.exec(`edgeui scale ${mod.settings.scale[classesUI[mod.game.me.class].settingsProp]}`);
+      }, 350);
       overlayUI.window.setPosition(mod.settings.windowPos[classesUI[mod.game.me.class].settingsProp][0], mod.settings.windowPos[classesUI[mod.game.me.class].settingsProp][1]);
       overlayUI.window.setAlwaysOnTop(true, 'screen-saver', 1);
       overlayUI.window.setVisibleOnAllWorkspaces(true);
-      overlayUI.window.on('move', () => { moving = true; })
-      overlayUI.window.on('moved', () => { mod.setTimeout(() => { moving = false; }, 500) })
+      overlayUI.window.on('move', () => { moving = true; });
+      overlayUI.window.on('moved', () => { mod.setTimeout(() => { moving = false; }, 500); });
       overlayUI.window.on('close', () => {
          mod.settings.windowPos[classesUI[openedClazz].settingsProp] = overlayUI.window.getPosition();
          mod.clearAllIntervals();
