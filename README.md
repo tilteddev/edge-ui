@@ -40,6 +40,7 @@ A toolbox/electron gui based workaround for warrior edge being slow/getting stuc
 https://github.com/Snugglez/warrior-edge-ui
 
 [Warr Edge UI Preview](https://streamable.com/b2kupq)
+
 **Disclaimer**
 Additional changes in this mod is only meant for my own usage. If you want to support, please support the original author ( Snug ) as i don't take credits or $$ for it.
 
