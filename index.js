@@ -171,7 +171,7 @@ exports.NetworkMod = function edgeUI(mod) {
       overlayUI.window.setIgnoreMouseEvents(!mod.settings.draggable, {
          forward: !mod.settings.draggable
       });
-      mod.setInterval(() => { moveTop(); }, 500);
+      //mod.setInterval(() => { moveTop(); }, 500);
 
       openedClazz = mod.game.me.class;
 
