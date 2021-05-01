@@ -93,7 +93,7 @@ exports.NetworkMod = function edgeUI(mod) {
       });
    });
 
-   mod.hook('S_PLAYER_STAT_UPDATE', 14, (e) => {
+   mod.hook('S_PLAYER_STAT_UPDATE', 15, (e) => {
       if (!overlay || !classesUI[mod.game.me.class]) return;
 
       if (mod.game.me.class == 'warrior' && curEdge != e.edge) {
